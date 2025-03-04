@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <link rel="icon" href="picture/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="picture/favicon.ico" type="image/x-icon">
+    <style>
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        /* 页面容器样式 */
+        #page-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+
+        /* 背景容器样式 */
+        .background-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            background: url('picture/background.gif') no-repeat center center;
+            background-size: cover;
+            z-index: 1;
+        }
+
+        /* 图片容器样式 */
+        .images-container {
+            position: absolute;
+            bottom: 45%;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 4vw;
+            z-index: 2;
+        }
+
+        /* 图片项样式 */
+        .image-item {
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            width: 14.4vw;
+            height: 20.4vw;
+            background-size: contain;
+            margin-bottom: -350px;
+            background-position: center;
+        }
+
+        /* 图片项悬停效果 */
+        .image-item:hover {
+            transform: scale(1.2);
+            transition: transform 0.3s ease;
+        }
+
+        /* 不同图片项的背景图 */
+        .image-item.image1 {
+            background: url('picture/01.png') no-repeat center center;
+        }
+
+        .image-item.image2 {
+            background: url('picture/02.png') no-repeat center center;
+        }
+
+        .image-item.image3 {
+            background: url('picture/03.png') no-repeat center center;
+        }
+
+        .image-item.image4 {
+            background: url('picture/04.png') no-repeat center center;
+        }
+
+        .image-item.image5 {
+            background: url('picture/购物.png') no-repeat center center;
+        }
+
+        .new-image {
+            position: absolute;
+            top: 5%;
+            left: 5%;
+            width: auto;
+            height: auto;
+            z-index: 3;
+        }
+
+        .bottom-image {
+            position: absolute;
+            bottom: 3%;
+            left: 52%;
+            transform: translateX(-50%);
+            width: auto;
+            height: auto;
+            z-index: 3;
+        }
+
+        /* 播放按钮样式 */
+        #playButton {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 999;
+            padding: 10px 20px;
+            background-color: #00CED1;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        #playButton:hover {
+            background-color: #009999;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const links = document.querySelectorAll('.images-container a');
+            links.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetUrl = this.href;
+                    const pageContainer = document.getElementById('page-container');
+                    pageContainer.style.opacity = 0;
+                    setTimeout(() => {
+                        window.location.href = targetUrl;
+                    }, 500);
+                });
+            });
+
+            // 播放音乐按钮逻辑
+            const playButton = document.getElementById('playButton');
+            const backgroundMusic = document.getElementById('backgroundMusic');
+
+            playButton.addEventListener('click', function () {
+                if (backgroundMusic.paused) {
+                    backgroundMusic.play();
+                    playButton.textContent = '暂停音乐';
+                } else {
+                    backgroundMusic.pause();
+                    playButton.textContent = '播放音乐';
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <audio id="backgroundMusic" src="picture/音乐.mp3" loop></audio>
+    <button id="playButton">播放音乐</button>
+    <div id="page-container">
+        <div class="background-container"></div>
+        <div class="images-container">
+            <a href="历史沿革.html">
+                <div class="image-item image1"></div>
+            </a>
+            <a href="社会因子.html">
+                <div class="image-item image2"></div>
+            </a>
+            <a href="艺术因子.html">
+                <div class="image-item image3"></div>
+            </a>
+            <a href="守正创新.html">
+                <div class="image-item image4"></div>
+            </a>
+            <a href="购物吧.html">
+                <div class="image-item image5"></div>
+            </a>
+        </div>
+        <img class="new-image" src="picture/字.png" alt="标题">
+    </div>
+</body>
+
+</html>

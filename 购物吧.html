@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>购物网页</title>
+  <style>
+    /* 全局样式 */
+    body {
+      background: rgba(0, 206, 209, 0.5) center/cover;
+      background-blend-mode: multiply;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    /* 回到首页容器样式 */
+    .back-to-home {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: white;
+      border-radius: 10px;
+      padding: 10px 20px;
+      font-size: 48px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .back-to-home:hover {
+      transform: scale(1.1);
+    }
+
+    /* 导航栏样式 */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #00CED1;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 20px;
+    }
+
+    .nav-left,
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .nav-right {
+      transform: translateX(-40px);
+    }
+
+    nav img {
+      height: 70px;
+    }
+
+    nav input {
+      padding: 30px;
+      width: 640px;
+      font-size: 22.4px;
+      border-radius: 12px;
+    }
+
+    nav button {
+      padding: 22px;
+      font-size: 22.4px;
+    }
+
+    nav button:first-of-type {
+      border: none;
+      background: transparent;
+      padding: 0;
+    }
+
+    nav input:hover,
+    nav button:not(:first-child):hover {
+      transform: scale(1.05);
+    }
+
+    nav button:first-of-type img {
+      background: transparent;
+      margin: 0 0 -8px 0;
+      vertical-align: middle;
+    }
+
+    nav button:first-of-type:hover img {
+      transform: scale(1.1);
+    }
+
+    /* 商品展示区域样式 */
+    .product-container {
+      margin-top: 80px;
+      display: flex;
+      height: calc(100vh - 60px);
+    }
+
+    .left-product {
+      width: 33.33%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 66.67%;
+    }
+
+    .left-product img {
+      width: 600px;
+      height: 800px;
+      transition: transform 0.3s ease;
+      position: relative;
+      top: 138px;
+      border-radius: 15px;
+    }
+
+    .left-product img:hover {
+      transform: scale(1.1);
+    }
+
+    .right-products {
+      width: 66.67%;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      padding: 20px;
+    }
+
+    .right-products img {
+      width: 100%;
+      height: 428px;
+      margin: 0;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+      transform: translatey(38px);
+    }
+
+    .right-products img:hover {
+      transform: scale(1.1);
+    }
+
+    /* 商品详情子模块样式 */
+    .product-details {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 50vw;
+      height: 50vh;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      z-index: 1000;
+    }
+
+    .product-details-content {
+      display: flex;
+      height: 100%;
+    }
+
+    .carousel-container {
+      width: 33.3333%;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .carousel-slide {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    .carousel-slide.active {
+      opacity: 1;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      /* 添加圆角效果 */
+      border-radius: 10px;
+      /* 添加内边距来产生间隔 */
+      padding: 10px;
+      box-sizing: border-box;
+    }
+
+    .text-container {
+      width: 66.6667%;
+      height: 100%;
+      padding: 20px;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .text-container p {
+      margin: 0;
+      padding: 0;
+      font-size: 18px;
+      text-align: center;
+    }
+
+    /* 动画效果 */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeOut {
+      from {
+        opacity: 1;
+      }
+
+      to {
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 新型导航栏 -->
+  <nav>
+    <div class="nav-left">
+      <img src="picture\图标.png" alt="网站logo">
+      <input type="text" placeholder="搜索商品">
+    </div>
+
+    <div class="nav-right">
+      <button><img src="picture\购物车.png" alt="购物车图标"></button>
+      <button>用户登录/注册</button>
+    </div>
+  </nav>
+
+  <!-- 商品展示区域 -->
+  <div class="product-container">
+    <div class="left-product">
+      <img src="picture\课程海报.png" alt="课程" onclick="showDetails(0, event)">
+    </div>
+    <div class="right-products">
+      <img src="picture\印章1（舞蹈图案）.png" alt="印章" onclick="showDetails(1, event)">
+      <img src="picture\宣传册（正面）.png" alt="宣传册" onclick="showDetails(2, event)">
+      <img src="picture\剪纸2（立体、含光影）.png" alt="剪纸" onclick="showDetails(3, event)">
+      <img src="picture\书册.png" alt="书册" onclick="showDetails(4, event)">
+    </div>
+  </div>
+
+  <!-- 商品详情子模块 -->
+  <div class="product-details" id="product-details">
+    <div class="product-details-content">
+      <div class="carousel-container">
+        <div class="carousel-slide active">
+          <img src="请修改1" alt="轮播图1">
+        </div>
+        <div class="carousel-slide">
+          <img src="请修改2" alt="轮播图2">
+        </div>
+        <div class="carousel-slide">
+          <img src="请修改3" alt="轮播图3">
+        </div>
+      </div>
+      <div class="text-container">
+        <p id="detail-text">单击任意处返回</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let currentSlideIndex = 0;
+    let carouselInterval;
+
+    const productData = [
+      {
+        images: ["请修改1-1", "请修改1-2", "请修改1-3"],
+        text: "课程相关详细信息，单击任意处返回"
+      },
+      {
+        images: ["picture/印章1（舞蹈图案）.png", "picture/印章2（蒙古语图案）.png", "picture/印章3（汉语图案）.png"],
+        text: "印章相关详细信息，单击任意处返回"
+      },
+      {
+        images: ["picture/宣传册（正面）.png", "picture/宣传册背面（五天行程介绍）.png", "请修改3-3"],
+        text: "宣传册相关详细信息，单击任意处返回"
+      },
+      {
+        images: ["picture/剪纸1（平面、多人）.png", "picture/剪纸2（立体、含光影）.png", "picture/剪纸3（立体、含光影）.jpg"],
+        text: "剪纸相关详细信息，单击任意处返回"
+      },
+      {
+        images: ["请修改5-1", "请修改5-2", "请修改5-3"],
+        text: "书册相关详细信息，单击任意处返回"
+      }
+    ];
+
+    function showNextSlide() {
+      const slides = document.querySelectorAll('.carousel-slide');
+      const totalSlides = slides.length;
+      slides[currentSlideIndex].classList.remove('active');
+      currentSlideIndex = (currentSlideIndex + 1) % totalSlides;
+      slides[currentSlideIndex].classList.add('active');
+    }
+
+    function showDetails(productIndex, event) {
+      event.stopPropagation(); // 阻止事件冒泡
+      const productDetails = document.getElementById('product-details');
+      const slides = document.querySelectorAll('.carousel-slide img');
+      const textElement = document.getElementById('detail-text');
+
+      // 更新轮播图
+      const productImages = productData[productIndex].images;
+      slides.forEach((slide, index) => {
+        slide.src = productImages[index];
+      });
+
+      // 更新文字信息
+      textElement.textContent = productData[productIndex].text;
+
+      productDetails.style.display = 'block';
+      productDetails.style.animation = 'fadeIn 0.5s';
+      currentSlideIndex = 0;
+      slides[0].classList.add('active');
+      carouselInterval = setInterval(showNextSlide, 3000);
+    }
+
+    function closeDetails() {
+      const productDetails = document.getElementById('product-details');
+      productDetails.style.animation = 'fadeOut 0.5s';
+      setTimeout(() => {
+        productDetails.style.display = 'none';
+        clearInterval(carouselInterval);
+      }, 500);
+    }
+
+    document.addEventListener('click', function (event) {
+      const productDetails = document.getElementById('product-details');
+      if (!productDetails.contains(event.target)) {
+        closeDetails();
+      }
+    });
+  </script>
+  <div class="back-to-home" onclick="window.location.href='首页.html'">回到首页</div>
+</body>
+
+</html>

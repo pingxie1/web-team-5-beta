@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --primary-color: #007BFF;
+      --accent-color: #FFC107;
+      --sub-module-bg: #46887b;
+      --sub-card-bg: #6ed1e2;
+      --text-dark: #495057;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url("picture/3.jpg");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      opacity: 0;
+      animation: fadeIn 0.7s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    .back-symbol {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      width: 50px;
+      height: 50px;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      font-size: 36px;
+      text-align: center;
+      line-height: 50px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .container {
+      padding: 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+      transform: translateY(20%);
+    }
+
+    h1.main-title {
+      font-size: 88px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 132px;
+    }
+
+    .card-module {
+      margin-bottom: 88px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      background: var(--primary-color);
+      color: white;
+      transition: all 0.3s;
+      width: 100%;
+      opacity: 0.8;
+    }
+
+    .card-module.active {
+      opacity: 1;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+      border: 2px solid var(--primary-color);
+    }
+
+    .main-card {
+      padding: 28px 58px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .main-card:hover {
+      transform: scale(1.02);
+    }
+
+    .main-card img {
+      width: 50px;
+      height: 50px;
+      margin-right: 28px;
+    }
+
+    .main-card h2 {
+      font-size: 58px;
+      font-weight: 500;
+      margin: 28px 0;
+      line-height: 1.2;
+    }
+
+    .sub-grid {
+      display: none;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+      padding: 30px;
+      background: var(--sub-module-bg);
+      animation: expand 0.3s;
+    }
+
+    .card-module.active .sub-grid {
+      display: grid;
+    }
+
+    .sub-card {
+      padding: 20px;
+      border-radius: 8px;
+      background: var(--sub-card-bg);
+      min-height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      transition: transform 0.2s;
+      cursor: pointer;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .sub-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .sub-card h3 {
+      font-size: 28px;
+      font-weight: 500;
+      color: var(--text-dark);
+      margin: 0;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .overlay-content {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 30px;
+      border-radius: 16px;
+      width: 40%;
+      font-size: 24px;
+      line-height: 1.6;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+
+    @media (max-width: 1200px) {
+      .container {
+        transform: translateY(10%);
+      }
+
+      .main-title {
+        font-size: 64px;
+        margin-bottom: 80px;
+      }
+
+      .sub-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 992px) {
+      .sub-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .main-card h2 {
+        font-size: 48px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 16px;
+        transform: none;
+      }
+
+      .main-title {
+        font-size: 48px;
+        margin-bottom: 60px;
+      }
+
+      .card-module {
+        margin-bottom: 60px;
+      }
+
+      .main-card {
+        padding: 20px 30px;
+      }
+
+      .main-card h2 {
+        font-size: 36px;
+      }
+
+      .sub-grid {
+        grid-template-columns: 1fr;
+        padding: 20px;
+        gap: 20px;
+      }
+
+      .overlay-content {
+        width: 80%;
+        font-size: 18px;
+      }
+    }
+  </style>
+  <title>守正创新</title>
+</head>
+
+<body>
+  <a href="首页.html" class="back-symbol">&lt;</a>
+
+  <div class="container">
+    <h1 class="main-title">守正创新</h1>
+
+    <!-- 发展概况模块 -->
+    <div class="card-module">
+      <div class="main-card" onclick="toggleModule(this)">
+        <img src="picture/服饰2.png" alt="发展概况">
+        <h2>发展概况</h2>
+      </div>
+      <div class="sub-grid">
+        <div class="sub-card"
+          onclick="showOverlay('主要传播载体：\n\n目前，<span style=color:red> 萨吾尔登</span>作为<u>国家级非物质文化遗产</u>，传播主体包括但不限于主流媒体（中央级媒体、省市级媒体等）、当体文化宣传部门（城市文化厅、旅游局等）、萨吾尔登传承人（萨吾尔登舞蹈演员、民族舞艺人、剧团等）、萨吾尔登爱好者（蒙古族群众、新疆群众、民族舞爱好者、艺术研究者等）。\n 总体来讲，萨吾尔登的宣传传播范围较为局限，受众较为集中，具有较强的地域性和有限性。\n\n点击任意处返回。')">
+          <h3>主要传播载体</h3>
+        </div>
+        <div class="sub-card"
+          onclick="showOverlay('政策概况：\n\n近年来，我国出台了一系列与非物质文化遗产保护有关的政策，\n例如2011年《中国人民共和国非物质文化遗产法》、2021年《关于进一步加强非物质文化遗产保护工作》《中国非物质文化遗产传承人研修培训计划实施方案（2021 - 2025）》，致力于保护、传承和发展非遗文化、鼓励非遗传承人的的传授与培训，倡导非遗项目与旅游、文化创意等产业的融合，使非遗产业成为文化、经济的重要支柱。\n为积极响应国家号召，推进非物质文化遗产行业的兴盛与蓬勃，本项目将把当代大学生对于非遗保护的创新与发扬充分融入国家的政策方针，从独一无二的角度发出对非遗传承的时代强音。\n\n点击任意处返回。')">
+          <h3>政策概况</h3>
+        </div>
+        <div class="sub-card"
+          onclick="showOverlay('市场概况：\n\n随着社会经济的高速发展，巨大洪流的裹挟与对比下，人们的精神世界逐渐匮乏，出现当代年轻人对非遗文化不感兴趣、害怕群体生活、不敢与人面对面交流等问题。从而反映出发展深层文化、丰实精神世界、参与群体活动的必要性。\n此外，随着人们猎奇心理、消费能力的与日俱增和互联网的日益发展，越来越多的特色文创、文旅目的地涌入公众视野，从淄博烧烤、哈尔滨冰雕到泉州簪花、甘肃麻辣烫，可见当前文化生活、文旅发展的刚需性和匮乏性。\n然而，地区经济发展不均衡，文化资金投入不足的问题仍然有待解决，西部地区仍然面临着民族发展与区域发展相结合的巨大挑战。\n\n点击任意处返回。')">
+          <h3>市场概况</h3>
+        </div>
+        <div class="sub-card"
+          onclick="showOverlay('传播与宣传概况：\n\n线下传播概况:\n萨吾尔登的发源地之一的博湖县，自2007年开始举办节庆活动。2008年6月，博湖县筹备首届博斯腾湖捕鱼节暨祭湖仪式，将蒙古族传统的民俗祭湖文化发扬光大，将萨吾尔登舞蹈、托布秀尔弹奏作为捕鱼节民俗文化展示搬上舞台。为打造文化旅游县品牌，2013年5月，博湖县举办以“萨吾尔登艺术故乡，博斯腾湖人间天堂”为主题的首届萨吾尔登故乡文化艺术节，万人同跳“萨吾尔登”舞蹈和千人同奏“托布秀尔”表演冲刺上海大世界基尼斯纪录。\n近两年，随着萨吾尔登故乡文化艺术节的举办，博湖县萨吾尔登舞蹈走向世界，博尔塔拉蒙古自治州、内蒙古、蒙古国等众多考察团赴博湖学习。\n蒙古族聚居区经常举办各种庆祝活动，如婚礼、节日庆典等，萨吾尔登是这些活动中不可或缺的组成部分。\n此外，许多家庭通过口传身授的方式，将萨吾尔登的舞蹈技艺传授给下一代，确保这一文化遗产得以延续。\n线上宣传概况：\n在央广网、中工网、中青在线、新疆电视台等主流媒体均有1 - 2篇报道，主题大多围绕“新疆非遗”“故乡文化艺术节”等话题开展，且大多非近些年的宣传报道，传播力、影响力较差，文稿质量较低、主题较同质。较少文稿能结合数字胡、信息化、工业化的时代现状和新阶段的文化互动方式、传播方式，提出与时俱进的发展措施。\n\n点击任意处返回。')">
+          <h3>传播与宣传概况</h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- 发展困境模块 -->
+    <div class="card-module">
+      <div class="main-card" onclick="toggleModule(this)">
+        <img src="picture/服饰1.png" alt="发展困境">
+        <h2>发展困境</h2>
+      </div>
+      <div class="sub-grid">
+        <div class="sub-card"
+          onclick="showOverlay('资金不足文化 传播力受阻：\n\n经济力和文化力相互作用，以文化为代表的上层建筑由经济基础决定，而一定层面上，文化可以反过来使经济产生超常规效率。\n如今，许多文旅产业以惊人的速度释放出新的市场消费活力。然而，非物质文化遗产的传承工作需要经费支持，经济发展不充分，导致各色各样的民族文化，非遗文化难以冲破地域限制，走向大众视野。\n\n点击任意处返回。')">
+          <h3>资金不足文化 传播力受阻</h3>
+        </div>
+        <div class="sub-card"
+          onclick="showOverlay('多元文化冲击 市场了解度与接受度不高：\n\n融媒体模式下的文化互动方式改变,宣传方式的陈旧老套导致文化本身的生动性、直观性大打折扣。\n创新意识与整合思维较差，使得非遗项目缺乏时代感和超越性。\n随着现代娱乐方式的多样化和多媒体的快速发展，年轻人更倾向于追求新潮、时尚的外来流行文化与融媒体模式下的文化互动，因此，多数人对于传统的、民族的文化渐失兴致，减少了对于本国优秀传统文化的守正创新，从而削弱了对非遗文化的认同感，对民族文化的自信心。\n\n点击任意处返回。')">
+          <h3>多元文化冲击 市场了解度与接受度不高</h3>
+        </div>
+        <div class="sub-card"
+          onclick="showOverlay('继承性较弱 后继无人：\n\n熟悉掌握萨吾尔登的艺人和群众大多属于新疆地区的少数民族，该群体具有高龄性、区域性。\n除了传授者的减少，还有承接者的断代。随着城市化经济发展，年轻群体的交友方式、社交方式越来越灵活便捷，例如网络交友、在外务工、求学、就业等，与社会、世界的交互越来越频繁和普遍，越来越多的年轻人从西北走向全国各地，却忘记将这一份民族舞蹈的欢愉和质朴带向更远的地方。本质上，这也是城市化经济发展下的现代文化价值观萨吾尔登传统民俗意识的内在冲击。\n此外，没有固定培训场所，无法进行规范、系统的传承培训，年轻一代对萨吾尔登舞蹈的学习机会减少，同样导致了传承链条面临磨损乃至断裂的危机。\n\n点击任意处返回。')">
+          <h3>继承性较弱 后继无人</h3>
+        </div>
+        <div class="sub-card"
+          onclick="showOverlay('其他问题：\n\n品牌意识薄弱、忽略区域形象建设、宣传渠道单一、非遗内涵发掘不足、智慧化景区建设不完善等。\n\n点击任意处返回。')">
+          <h3>其他问题</h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- 新增解决方案模块 -->
+    <div class="card-module">
+      <div class="main-card" onclick="toggleModule(this)">
+        <img src="picture/服饰1.png" alt="解决方案">
+        <h2>解决方案</h2>
+      </div>
+      <div class="sub-grid">
+        <div class="sub-card"
+          onclick="showOverlay('促进区域发展和民族发展：\n\n加强政府支持力度，加大文化资金的投入，出台相关政策，对萨吾尔登等传统文化艺术的传承和发展给予资金、场地、人才等方面的支持。\n加强对萨吾尔登等传统文化艺术的法律保护，打击侵权盗版行为，维护创作者的合法权益。利用先进技术对萨吾尔登舞蹈文化信息进行保存记录，构建完善的文化资料数据库，便于后续研究和传承。\n\n点击任意处返回。')">
+          <h3>促进区域发展和民族发展</h3>
+        </div>
+        <div class="sub-card"
+          onclick="showOverlay('注重传承人的接续培养：\n\n加大对萨吾尔登等传统文化艺术人才的培养力度，通过设立奖励基金、提供就业机会等方式，吸引更多年轻人投身到这一领域中，感受民族文化的独特魅力。并从学习能力、实践能力、创新意识、传播能力、社会责任感等综合方面培养传承人，传承非遗文化。\n\n点击任意处返回。')">
+          <h3>传承人接续培养</h3>
+        </div>
+        <div class="sub-card"
+          onclick="showOverlay('塑造区域品牌形象：\n\n从本能层次、行为层次、反思层次出发设计情感化、地域化、交互化的文创产品，为传统文化赋予新时代感和超越性。\n精准定制萨吾尔登特色资源和景观产品，提高辨识度，提供差异化服务，提高文化忠诚度和消费者粘合度，例如提供精品演绎产品，在生态文化保存良好的村落或区域，政府应发挥主导作用，推广传承萨吾尔登舞蹈，使其成为当地文化名片，并与旅游业相结合，吸引民众了解萨吾尔登。提高非遗文化普及度和传播度，进而触发大众对非遗文化的感知效应，以及投入行为驱动，进而产生经济效益和辐射效果，促进西北地区经济发展，促进民族文化大融合。\n寻找差异。抓住萨吾尔登自身特色然后深挖其背后的间接价值与潜在价值，找到它之为它的不同点；精准定位。在扩大萨吾尔登自身传播范围和影响力的同时，精准寻找更具粘性或需求量更大的受众群体，使文化的传播不只是信息的共振，更是心灵的共鸣。\n\n点击任意处返回。')">
+          <h3>塑造区域品牌，避免同质化宣传</h3>
+        </div>
+        <div class="sub-card"
+          onclick="showOverlay('数字化传承与跨界合作：\n\n探索利用现代科技手段（如 3D 扫描、虚拟现实 VR、动作捕捉技术）对萨吾尔登舞蹈进行数字化记录与保护，开发在线学习平台，促进舞蹈的国际传播与年轻一代的学习兴趣。\n将相关的宣传宣讲活动延展到东南沿海地区，帮助萨吾尔登走出新疆，走向全国，为非遗文化的普及化宣传做出贡献。\n新疆的传统手工艺技术精湛，包括刺绣、地毯编织、金属工艺、木雕、陶瓷等。新疆的地毯以其精美的图案和独特的风格而闻名于世，是新疆民间工艺的重要代表之一。\n维吾尔族的刺绣工艺也非常发达，他们善于将各种花卉、动物和几何图案融入到刺绣作品中，展现出独特的民族风情和艺术魅力。\n可以将萨吾尔登与这些工艺品相结合增强竞争力\n\n点击任意处返回。')">
+          <h3>数字化与跨界合作</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="overlay" id="overlay">
+    <div class="overlay-content" id="overlay-content"></div>
+  </div>
+
+  <script>
+    function toggleModule(card) {
+      const module = card.closest('.card-module')
+      const active = module.classList.contains('active')
+
+      document.querySelectorAll('.card-module').forEach(m => {
+        m.classList.remove('active')
+        m.querySelector('.sub-grid').style.display = 'none'
+      })
+
+      if (!active) {
+        module.classList.add('active')
+        module.querySelector('.sub-grid').style.display = 'grid'
+      }
+    }
+
+    function showOverlay(content) {
+      const overlay = document.getElementById('overlay')
+      const contentBox = document.getElementById('overlay-content')
+
+      contentBox.innerHTML = content.replace(/\n/g, '<br>')
+      overlay.style.display = 'flex'
+
+      overlay.onclick = () => {
+        overlay.style.display = 'none'
+      }
+    }
+  </script>
+</body>
+
+</html>

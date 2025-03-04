@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>萨吾尔登的艺术因子</title>
+  <style>
+    body {
+      font-family: 'Microsoft YaHei', sans-serif;
+      background-image: url("picture/3.jpg");
+      background-size: cover;
+      background-attachment: fixed;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      color: #f4ebd0;
+      text-align: center;
+      padding: 70px 0;
+      background-color: rgba(0, 0, 0, 0.3);
+      background-size: cover;
+      background-position: center;
+    }
+
+    h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    nav {
+      background-color: #b68d40;
+      text-align: center;
+      position: fixed;
+      /* 固定定位 */
+      top: 0;
+      /* 固定在顶部 */
+      width: 100%;
+      /* 宽度占满整个页面 */
+      z-index: 1000;
+      /* 确保导航栏在最上层 */
+    }
+
+
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      font-size: 28px;
+      display: inline-block;
+      margin: 28 35px;
+    }
+
+    nav ul li a {
+      display: block;
+      color: #f4ebd0;
+      text-decoration: none;
+      padding: 28px 88px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      background-color: #d6ad60;
+    }
+
+    section {
+      padding: 50px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      color: #122620;
+      font-size: 36px;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #b68d40;
+      padding-bottom: 10px;
+    }
+
+    p {
+      font-size: 28px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .image-container {
+      width: calc(100% * 2 / 3);
+      margin: 20px auto;
+      opacity: 0;
+      transform: scale(0.8);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .image-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .image-container.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    footer {
+      background-color: #122620;
+      color: #f4ebd0;
+      text-align: center;
+      padding: 20px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>萨吾尔登的艺术因子</h1>
+    <p>领略草原风情，感受萨吾尔登魅力</p>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="首页.html">首页</a></li>
+      <li><a href="#rhythm">节奏</a></li>
+      <li><a href="#breathing">呼吸</a></li>
+      <li><a href="#steps">步伐</a></li>
+      <li><a href="#key-parts">显要动作部位</a></li>
+    </ul>
+  </nav>
+  <section id="rhythm">
+    <h2>节奏</h2>
+    <p>
+      萨吾尔登的节奏如同草原上奔腾的骏马，充满力量与激情。它常常以强烈的鼓点为基础，节奏明快且富有变化。在舞蹈中，舞者会根据节奏的快慢、强弱进行动作的变化，展现出草原人民豪迈、奔放的性格。例如，在表现骏马奔跑时，节奏会变得急促而有力，舞者的动作也会更加迅速和激烈；而在表现草原的宁静时，节奏则会变得舒缓，动作也会更加优雅。
+    </p>
+    <div class="image-container">
+      <img src="picture\节奏.jpeg" alt="萨吾尔登节奏相关图片">
+    </div>
+  </section>
+  <section id="breathing">
+    <h2>呼吸</h2>
+    <p>
+      呼吸在萨吾尔登中起着至关重要的作用，它就像草原上的风，贯穿于整个舞蹈过程。舞者通过有节奏的呼吸来控制身体的动作和情绪的表达。深呼吸可以帮助舞者放松身体，更好地展现出动作的舒展和大气；而急促的呼吸则可以增强动作的爆发力和力度。例如，在表现雄鹰展翅时，舞者会随着吸气伸展双臂，仿佛要拥抱整个草原；呼气时则会收缩身体，展现出雄鹰的矫健。
+    </p>
+    <div class="image-container">
+      <img src="picture/呼吸.jpg" alt="萨吾尔登呼吸相关图片">
+    </div>
+  </section>
+  <section id="steps">
+    <h2>步伐</h2>
+    <p>
+      萨吾尔登的步伐丰富多样，每一种步伐都蕴含着草原文化的内涵。其中，最具代表性的步伐有“马步”和“圆步”。“马步”模仿了骏马的姿态，双脚微微分开，膝盖弯曲，身体保持稳定，展现出骏马的稳健和力量；“圆步”则如同草原上的车轮，轻盈而流畅，舞者通过脚掌的转动和身体的摆动，仿佛在草原上自由地穿梭。这些步伐不仅体现了草原人民与马的紧密联系，也展现了他们对草原生活的热爱。
+    </p>
+    <div class="image-container">
+      <img src="picture\步伐.jpg" alt="萨吾尔登步伐相关图片">
+    </div>
+  </section>
+  <section id="key-parts">
+    <h2>显要动作部位</h2>
+    <p>
+      萨吾尔登的显要动作部位主要集中在肩部、手臂和头部。肩部动作是萨吾尔登的一大特色，通过耸肩、绕肩等动作，展现出草原人民的豪迈和洒脱；手臂动作则丰富多样，有伸展、摆动、挥舞等，仿佛在描绘草原上的美景和生活场景；头部动作也十分重要，舞者通过抬头、转头等动作，表现出雄鹰的高傲和自信。这些显要动作部位的协调配合，使得萨吾尔登更加生动、富有感染力。
+    </p>
+    <div class="image-container">
+      <img src="picture\部位.webp" alt="萨吾尔登显要动作部位相关图片">
+    </div>
+  </section>
+  <footer>
+    <p>&copy; 萨吾尔登的艺术因子</p>
+  </footer>
+  <script>
+    function checkVisibility() {
+      const imageContainers = document.querySelectorAll('.image-container');
+      imageContainers.forEach(container => {
+        const rect = container.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom >= 0) {
+          container.classList.add('visible');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', checkVisibility);
+    window.addEventListener('load', checkVisibility);
+  </script>
+</body>
+
+</html>

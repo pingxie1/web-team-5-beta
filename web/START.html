@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Full Screen Video</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <video id="myVideo" src="picture/start.mp4" type="video/mp4" poster="fallback.jpg" preload="auto">
+        Your browser does not support the video tag.
+    </video>
+    <script>
+        var video = document.getElementById('myVideo');
+
+        // 全屏播放视频
+        function fullScreen() {
+            if (video.requestFullscreen) {
+                video.requestFullscreen();
+            } else if (video.mozRequestFullScreen) { /* Firefox */
+                video.mozRequestFullScreen();
+            } else if (video.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+                video.webkitRequestFullscreen();
+            } else if (video.msRequestFullscreen) { /* IE/Edge */
+                video.msRequestFullscreen();
+            }
+        }
+
+        // 当视频播放结束时的操作
+        video.addEventListener('ended', function () {
+            video.pause();
+            // 尝试退出全屏模式，如果还在全屏中
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            } else if (document.msExitFullscreen) {
+                document.msExitFullscreen();
+            } else if (document.mozCancelFullScreen) {
+                document.mozCancelFullScreen();
+            } else if (document.webkitExitFullscreen) {
+                document.webkitExitFullscreen();
+            }
+
+            // 跳转到首页.html
+            window.location.href = '首页.html';
+        });
+
+        // 页面加载完成后全屏播放视频
+        window.onload = function () {
+            video.play().catch(e => {
+                console.error('无法播放视频:', e.message);
+                alert('无法播放视频。请检查您是否有播放视频的权限。');
+            });
+
+            fullScreen();
+        };
+    </script>
+</body>
+
+</html>

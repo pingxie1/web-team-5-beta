@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>历史沿革</title>
+    <style>
+        /* 全局样式 */
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("picture/1.jpg");
+            background-size: cover;
+            background-attachment: fixed;
+            color: #fff;
+            opacity: 0;
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        /* 淡入动画 */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* 导航栏样式 */
+        nav {
+            background-color: rgba(0, 0, 0, 0.6);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 18px 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 88px;
+            font-size: 1.8em;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ffd700;
+        }
+
+        /* 主内容区样式 */
+        .section {
+            padding: 100px 30px;
+            /* 减少上下内边距 */
+            text-align: center;
+            position: relative;
+            min-height: auto;
+            /* 去掉最小高度限制 */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .section h1 {
+            font-size: 4em;
+            /* 增大标题字体大小 */
+            margin-bottom: 20px;
+            /* 减少标题底部外边距 */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            color: #ffd700;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        /* 子内容区样式 */
+        .sub-section {
+            padding: 30px;
+            /* 减少内边距 */
+            text-align: center;
+            background: rgba(0, 0, 0, 0.6);
+            margin: 15px auto;
+            /* 减少外边距 */
+            max-width: 900px;
+            border-radius: 20px;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .sub-section:hover {
+            transform: scale(1.03);
+        }
+
+        .sub-section h2 {
+            font-size: 2.5em;
+            /* 增大子标题字体大小 */
+            margin-bottom: 15px;
+            /* 减少子标题底部外边距 */
+            color: #ffd700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .sub-section p {
+            font-size: 1.5em;
+            /* 增大段落字体大小 */
+            line-height: 1.7;
+            /* 调整行高 */
+        }
+
+        /* 图片区域样式 */
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: auto;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 1s ease;
+            margin: 20px 0;
+            /* 调整图片容器外边距 */
+        }
+
+        .image-container.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .image-container img {
+            width: 70%;
+            /* 适当增大图片宽度 */
+            height: auto;
+            object-fit: contain;
+        }
+
+        /* 动画效果 */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 导航栏 -->
+    <nav>
+        <a href="首页.html">首页</a>
+        <a href="#origin">名称由来</a>
+        <a href="#development">相关记载</a>
+        <a href="#prosperity">重要意义</a>
+        <a href="#inheritance">可传承性</a>
+    </nav>
+
+    <div class="section">
+        <h1>萨吾尔登</h1>
+        <div class="sub-section">
+            <p>新疆卫拉特蒙古族非遗传统性舞蹈。作为一种将音乐、舞美和生产生活融为一体的艺术表现形式，它通过舞蹈形态来表达蒙古族人民生产劳作、情感表达、动物模拟的场景。
+                <br>主要分布于新疆的巴音郭勒蒙古自治州、博尔塔拉蒙古自治州、塔城等地区。
+            </p>
+        </div>
+    </div>
+
+    <div class="image-container">
+        <img src="picture\部位.webp" alt="图片1">
+    </div>
+
+    <div class="section" id="origin">
+        <h1>名称由来</h1>
+        <div class="sub-section">
+            <p>一种说法是由土尔扈特蒙古语“萨吾那”意为马的头上下不停地弹动，与托布秀尔弹奏时发出的“登登”声“登”合二为一；
+                <br>还有观点认为“萨吾尔登”可能源于卫拉特蒙古语中形容马的一种步子，或是弹托布秀尔的手腕动作；
+                <br>还有说法称与蒙古语“萨吾尔”有关，看到小孩玩耍或高兴蹦跳会说“萨吾尔、萨吾尔地玩”“萨吾尔登、萨吾尔登地跳”。
+            </p>
+        </div>
+    </div>
+
+    <div class="image-container">
+        <img src="picture/3.jpg" alt="图片2">
+    </div>
+
+    <div class="section" id="development">
+        <h1>相关记载</h1>
+        <div class="sub-section">
+            <p>《江格尔》《蒙古行记》《准格尔史略》等有多处有关于萨吾尔登的记载，可见萨吾尔登舞蹈是在卫拉特蒙古族人历史发展的进程中不断发展形成，是一个民族的生活方式、感情色彩和审美等的外显。
+                <br>根据明史记载，卫拉特蒙古族人民遇到节日欢庆，便弹起托布秀尔，吹拉弹唱，舞动双臂；
+                <br>在卫拉特蒙古族英雄史诗《江格尔》中可以看到有关于描述萨吾尔登舞蹈的记载：“江格尔故土的十二名曲，将十二支歌子伴奏，引吭高歌，摩肩蹭袖，叉腰抖肩，圣主江格尔可汗的身边，纷纷拥入，你唱我和，歌声悠扬，拉起四胡，统一舞步。”
+                <br>在《江格尔》同样可见，萨吾尔登很早就在古老的克烈部落形成，舞蹈动作上吸收了许多关于哈萨克族的舞蹈形态，在克列部落被卫拉特统一后，土尔扈特人进行吸收、融合，进一步优化并完善了萨吾尔登舞蹈。
+                <br>《准格尔史略》中记载，卫拉特蒙古族人以“林中百姓，以渔猎为生”。可以看出卫拉特蒙古族人早期以狩猎捕鱼而生，现如今的萨吾尔登舞蹈动作多以模拟生产劳作的舞蹈形式呈现居多，萨吾尔登舞蹈动作的发展与演变，与畜牧业生活密不可分。
+            </p>
+        </div>
+    </div>
+
+    <div class="image-container">
+        <img src="picture\呼吸.jpg" alt="图片3">
+    </div>
+
+    <div class="section" id="prosperity">
+        <h1>重要意义</h1>
+        <div class="sub-section">
+            <p>在蒙古族的重大节日和庆典活动中，萨吾尔登成为必不可少的表演项目，展现了蒙古族的热情与活力。
+                <br> 萨吾尔登，可以说是一个“多种民俗舞蹈”统称，也可以说是一种 “包罗万象”的、艺术化了的生活画卷。如今，这幅绝美的画卷已经成为新疆最闪亮的“文化名片”之一。
+                <br>萨吾尔登，对于拥有其文化传承地的新疆各地州来说，绝不仅仅是一种舞蹈，更是一个成功实现文旅融合的范例。
+                如今，每逢新疆各地州赴其他省市开展旅游推介会，如巴州、博州等地州必然会带上萨吾尔登舞者，他们已经成为展示自身文化形象、提升文化软实力、宣传推广文旅产品最有效的“利器”。
+            </p>
+        </div>
+    </div>
+
+    <div class="image-container">
+        <img src="picture\步伐.jpg" alt="图片4">
+    </div>
+
+    <div class="section" id="inheritance">
+        <h1>可传承性</h1>
+        <div class="sub-section">
+            <h2>历史属性</h2>
+            <p>萨吾尔登具有深厚的历史渊源和文化内涵,承载着卫拉特蒙古族的传统文化和艺术智慧,是蒙古族文化的重要组成部分。
+                <br>萨吾尔登的发源地之一的博湖县，是有名的文化旅游县。
+                <br>2008年6月，博湖县筹备首届博斯腾湖捕鱼节暨祭湖仪式，将蒙古族传统的民俗祭湖文化发扬光大，将萨吾尔登舞蹈、托布秀尔弹奏作为捕鱼节民俗文化展示搬上舞台。
+                <br>2013年5月，博湖县举办以“萨吾尔登艺术故乡，博斯腾湖人间天堂”为主题的首届萨吾尔登故乡文化艺术节，万人同跳“萨吾尔登”舞蹈和千人同奏“托布秀尔”表演冲刺上海大世界基尼斯纪录。
+                <br>近两年，随着萨吾尔登故乡文化艺术节的举办,博湖县萨吾尔登舞蹈走向世界，博尔塔拉蒙古自治州、内蒙古、蒙古国等众多考察团赴博湖学习。
+                <br>萨吾尔登之历久弥新恰恰证明了其文化的独特魅力和传承必要。
+            </p>
+        </div>
+        <div class="sub-section">
+            <h2>民族属性</h2>
+            <p>萨吾尔登作为蒙古族民间舞蹈，承载着蒙古族的生产生活、历史、信仰等，传承萨吾尔登能让蒙古族人民强化对本民族文化的认同，也让其他民族更深入了解蒙古族文化，促进各民族对多元文化的尊重，从而增强各民族对中华文化的归属感。
+                <br>同时，萨吾尔登常出现在节庆、聚会等场合，需要团体协作，共同参与，其传承可以促进民族间的情感交流，拉近彼此距离，吸引多民族共同参与，形成各民族共同团结奋斗的良好局面，进一步增强中华民族的凝聚力。
+            </p>
+        </div>
+        <div class="sub-section">
+            <h2>非遗属性</h2>
+            <p>萨吾尔登作为蒙古族文化记忆的一部分，其传承是防止文化传承出现断层，为后世守住民族文化的根脉的重要步骤。
+                <br>它独特的艺术风格，如明快节奏、矫健步伐、多变舞姿，以及不同部落间差异化的表现形式，丰富了世界文化的多样性，充实了非遗文化的内涵。传承过程中，舞蹈动作、音乐伴奏、服饰道具制作等先辈智慧结晶的技艺得以延续，保证了非遗文化的完整性。
+                <br>同时，萨吾尔登的传承唤起民众对非遗文化的关注，让大家意识到非遗的价值，激发保护非遗文化的意识与责任感，营造出全社会共同参与非遗保护的良好氛围。
+            </p>
+        </div>
+        <div class="sub-section">
+            <h2>文化属性</h2>
+            <p>舞蹈符号背后所蕴含的是一个民族，一片地域的文化圈，对萨吾尔登的守正与创新过程更是对历史进程中所承载的文化价值和族群记忆的探求。</p>
+        </div>
+        <div class="sub-section">
+            <h2>美育属性</h2>
+            <p>舞蹈层面:相比于传统意义上蒙古舞的奔放矫健，萨吾尔登保留了西北风情中的热情豪放，其动作又具有简单易学、柔和舒展的特点，欢乐有趣并且观赏性强，且能达到休养生息，强身健体的作用。十分适合各个年龄段学习、娱乐。
+                <br>音乐层面:萨吾尔登的伴奏音乐是由蒙古族特色乐器“托部秀尔”弹奏的。托部秀尔的弹奏主体是由两根弦组成的，故学习起来没有太大难度，适合各个年龄，有或没有音乐基础的人群学习弹奏。其次，托部秀尔弹奏出的音乐轻快悦耳、节奏感强,令人安适而愉快，怡然而自得。表演自娱性较强，可以尽情释放情感、增强自信，欣赏时能产生情感共鸣、净化心灵，在欢乐的集体舞蹈氛围中消除烦恼，感受团结和谐，促进个体和社会美育的发展。
+            </p>
+        </div>
+    </div>
+
+    <script>
+        const imageContainers = document.querySelectorAll('.image-container');
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        });
+
+        imageContainers.forEach(container => {
+            observer.observe(container);
+        });
+    </script>
+</body>
+
+</html>

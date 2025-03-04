@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>社会因子</title>
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            /* 添加背景图片 */
+            background-image: url('picture/3.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        /* 淡入动画 */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        header {
+            /* 调整背景色透明度为 80% */
+            background-color: rgba(18, 38, 32, 0.28);
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        nav {
+            /* 调整背景色透明度为 80% */
+            background-color: rgba(182, 141, 64, 0.8);
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            font-size: 28px;
+            display: inline-block;
+            margin: 0 48px;
+        }
+
+        nav ul li a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 28px 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(214, 173, 96, 0.8);
+        }
+
+        section {
+            padding: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+            /* 调整背景色透明度为 80% */
+            background-color: rgba(255, 255, 255, 0.28);
+            border-radius: 10px;
+        }
+
+        h2 {
+            color: #122620;
+            font-size: 36px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #b68d40;
+            padding-bottom: 10px;
+        }
+
+        p {
+            font-size: 28px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .image-container {
+            width: calc(100% * 2 / 3);
+            margin: 20px auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .image-container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%);
+            transform: skewX(-30deg);
+            animation: lightPass 2s ease forwards;
+        }
+
+        @keyframes lightPass {
+            to {
+                left: 100%;
+            }
+        }
+
+        footer {
+            /* 调整背景色透明度为 80% */
+            background-color: rgba(18, 38, 32, 0.28);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>社会因子</h1>
+        <p>探索萨吾尔登背后的社会文化</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="首页.html">首页</a></li>
+            <li><a href="#geography">地理环境与生产生活</a></li>
+            <li><a href="#spirit">精神与信仰</a></li>
+            <li><a href="#costume">服饰与穿戴</a></li>
+            <li><a href="#music">音乐与旋律</a></li>
+        </ul>
+    </nav>
+    <section id="geography">
+        <h2>地理环境与生产生活</h2>
+        <p>历史上的新疆卫拉特蒙古族属于游牧民族，“逐水草而游牧”是他们传统的生活方式，畜牧业为主，农业、手工业为辅。
+            <br>卫拉特蒙古族在放牧的情况下，农耕、手工业也作为生活的辅助手段。据《和布克赛尔蒙古自治县概况》记载，自治县的农业只是畜牧业的从属部分，农业发展极其缓慢，只能翻山越岭赶着牧畜去其他地方换粮食。
+            据《喀喇沙尔志》记载“蒙民既以畜牧为生，并无正式从事手工业者，其仅有织制羊毛毡者，亦多供自用”。勤劳朴实的蒙古族妇女为了给牧民生产生活提供便捷，都会制毡子、刺绣、缝制蒙古袍、制马鞍等。
+            <br>居住环境的条件与生产劳作的方式，都潜移默化地被卫拉特蒙古族人民吸收、融合、加工到萨吾尔登舞蹈里，因此，现在我们看到的有关萨吾尔登上身舞蹈形态中很多是反映农耕、劳动生活、模拟动物的舞蹈动作，如挤奶、擀毡、套马、播种、收割，模拟马、羊、鹰等舞蹈形式，
+            而下肢步伐单一，是因为常年居住在狭小密闭的蒙古包中，空间场域限制了他们的活动，所以步伐简单而沉稳。
+        </p>
+        <div class="image-container">
+            <img src="picture\地理环境.jpg" alt="地理环境与生产生活相关图片">
+        </div>
+    </section>
+    <section id="spirit">
+        <h2>精神与信仰</h2>
+        <p>卫拉特蒙古族人民普遍信仰过原始宗教，即自然崇拜、祖先崇拜，他们认为：“宇宙万物及人类的生命都是从无到有的，从小到大，有一个生长孕育引导的过程。他们把上天看成阳之本，在他们的观念中，大地是万物生存之源，是人类伟大的母亲。卫拉特人民认为：祝颂、祭祀、誓言、祈祷、诅咒这些都是灵验的，你想要下雨，那你就跳舞。”由此可见，卫拉特蒙古族人民很早以前就通过各种祭祀活动求得神明的保护。
+            <br>如今的萨吾尔登乐舞有祭祀歌、祈祷歌以及带有宗教神秘色彩的舞蹈等，因此精神信仰也是影响萨吾尔登乐舞产生的一个主观因素。
+        </p>
+        <div class="image-container">
+            <img src="picture\信仰.jpg" alt="精神与信仰相关图片">
+        </div>
+    </section>
+    <section id="costume">
+        <h2>服饰与穿戴</h2>
+        <p>资华筠曾说：“服饰在人类求生活动中，其功能从保暖而发展为遮羞等，待文明发达之后才逐步具有了表现礼制与审美作用。”由此可以看出服装对自然舞蹈的形成有着深远影响。
+            <br>蒙古袍是卫拉特蒙古族人民必不可少的，其袍身肥大，袖子较长且内部空间较小，女性的蒙古袍长度要求着身必须下襟落地，舞动时裙子要盖住双脚，由于服装的限制，在跳萨吾尔登时，通常看到上肢手臂、手腕姿态比较多，灵活多变，下肢受到蒙古袍长度的影响步伐比较单一，沉稳，幅度较小。
+        </p>
+        <div class="image-container">
+            <img src="picture\服饰2.png" alt="服饰与穿戴相关图片">
+        </div>
+    </section>
+    <section id="music">
+        <h2>音乐与旋律</h2>
+        <p>有托布秀尔弹奏的地方，就有人跳萨吾尔登，两者相辅相成。
+            <br>如博州地区的托布秀尔整理出十二种套曲，每首曲子都有不同的节奏旋律，不同的故事，不同情感，民间艺人在跳起萨吾尔登舞蹈时，会根据曲目来展现不同的舞蹈动作，舞蹈的名称与托布秀尔的曲名一致。
+        </p>
+        <div class="image-container">
+            <img src="picture\音乐，托布秀尔.jpg" alt="音乐与旋律相关图片">
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2025 萨吾尔登社会因子介绍</p>
+    </footer>
+    <script>
+        // 这里代码保持不变，因为光影效果通过CSS实现，无需JavaScript额外控制
+        function checkVisibility() {
+            const imageContainers = document.querySelectorAll('.image-container');
+            imageContainers.forEach(container => {
+                const rect = container.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom >= 0) {
+                    container.style.animationPlayState = 'running';
+                }
+            });
+        }
+
+        window.addEventListener('scroll', checkVisibility);
+        window.addEventListener('load', checkVisibility);
+    </script>
+</body>
+
+</html>
